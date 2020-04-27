@@ -1,0 +1,62 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/useremail"
+    app:cardBackgroundColor="#8eb5dc"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+
+    android:layout_gravity="center_horizontal"
+    app:cardCornerRadius="8dp"
+    app:contentPadding="16dp"
+
+    >
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/liner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:textColor="#fff"
+            android:id="@+id/textt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="اعادة تعيين كلمة المرور"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonround"
+                android:hint=" ادخل البريد الإلكتروني">
+
+
+            </EditText>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
