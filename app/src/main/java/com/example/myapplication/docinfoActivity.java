@@ -37,6 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class docinfoActivity extends AppCompatActivity {
     Toolbar toolbar;
+    static String f;
     private Context mContext;
     private com.example.myapplication.Data.Userinvoice invoice;
 
@@ -113,7 +114,13 @@ public class docinfoActivity extends AppCompatActivity {
         final Intent intent=getIntent();
         if(intent.hasExtra("invoice")){
             invoice=(com.example.myapplication.Data.Userinvoice)intent.getSerializableExtra("invoice");
+            if(invoice.getCategoryId()==null){
+                porid.setVisibility( View.GONE);
+                porid1.setVisibility( View.GONE);
 
+            }else {
+                porid.setText( invoice.getCategoryId());
+            }
             if(invoice.getName()==null){
                 doc_name.setVisibility( View.GONE);
                 doc_name1.setVisibility( View.GONE);
@@ -186,6 +193,7 @@ public class docinfoActivity extends AppCompatActivity {
             }else {
                 porid.setText( invoice.getPeriod());
             }
+
             doc_service_provider_website.setMovementMethod(LinkMovementMethod.getInstance());
 
             RequestOptions requestOptions=new RequestOptions();
@@ -475,7 +483,7 @@ public class docinfoActivity extends AppCompatActivity {
             String one1=doc_number.getText().toString().trim();
             String one2=doc_pdate.getText().toString().trim();
            // String one3=doc_cat.getText().toString().trim();
-            String f=doc_cat1.getText().toString().trim();
+             f=doc_cat1.getText().toString().trim();
             String one4=doc_service_provider.getText().toString().trim();
             String one5=doc_service_provider_phone.getText().toString().trim();
             String one6=doc_service_provider_website.getText().toString().trim();
