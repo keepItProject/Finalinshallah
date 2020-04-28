@@ -122,7 +122,7 @@ holder.cardView.setCardBackgroundColor(android.R.color.transparent);
         }
 
         if (userCategory.getType().equals("user")) {
-            Glide.with(mContext).load(R.drawable.cate).into(holder.image);
+            Glide.with(mContext).load(R.drawable.supermarket).into(holder.image);
         }
 
         if (userCategory.getUser_id().equals("add")) {
