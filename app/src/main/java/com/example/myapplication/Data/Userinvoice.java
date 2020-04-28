@@ -9,6 +9,7 @@ public class Userinvoice implements Serializable {
 
 
     private String user_id;
+    private String WEB;
     private String type;
     private String name;
     private String notify;
@@ -63,6 +64,14 @@ public class Userinvoice implements Serializable {
 
     public String getType() {
         return type;
+    }
+
+    public void setWEB(String WEB) {
+        this.WEB = WEB;
+    }
+
+    public String getWEB() {
+        return WEB;
     }
 
     public String getName() {

@@ -91,13 +91,13 @@ public class addDoc2Activity extends AppCompatActivity {
     Date date1;
     private ArrayList<Float> prices;
     Spinner spinner;
-    private TextView name, date, phone, email, invoiceNumber;
+    private TextView name, date, phone, email, invoiceNumber,web2;
     private ArrayList<UserCategory> categories = new ArrayList<>();
     private CheckBox mCheckBox;
     Button bt , bt1;
     private Spinner mSpinner;
     String Name1, number1, Pdate1, Edate1, Etime1, period1, serviceprovider1, numserviceprovider1, websiteserviceprovider1;
-    EditText Name, number, period, serviceprovider, numserviceprovider, websiteserviceprovider;
+    EditText Name, number, period, serviceprovider, numserviceprovider, websiteserviceprovider,web;
     TextView  Pdate, Edate, Etime;
     TextView end_time;
     private Uri uri;
@@ -149,6 +149,9 @@ public class addDoc2Activity extends AppCompatActivity {
         serviceprovider = (EditText) findViewById(R.id.name);
         numserviceprovider = (EditText) findViewById(R.id.phone);
         websiteserviceprovider = (EditText) findViewById(R.id.email);
+        web2=findViewById(R.id.web2);
+        web=findViewById(R.id.web);
+
         receipt= findViewById(R.id.receipt);
         spinner = findViewById(R.id.spinner4);
         mCheckBox = (CheckBox) findViewById(R.id.checkBox);
@@ -240,6 +243,7 @@ public class addDoc2Activity extends AppCompatActivity {
                 serviceprovider1 = serviceprovider.getText().toString().trim();
                 numserviceprovider1 = numserviceprovider.getText().toString().trim();
                 websiteserviceprovider1 = websiteserviceprovider.getText().toString().trim();
+                String webn=web.getText().toString().trim();
                 // String t=receipt.
 
                 FirebaseDatabase.getInstance().getReference().child("document").orderByChild("number").equalTo(number1).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -317,6 +321,7 @@ public class addDoc2Activity extends AppCompatActivity {
                                         Userinvoice.setNotify((String) spinner.getSelectedItem());
                                         Userinvoice.setServiceProviderPhone(numserviceprovider1);
                                         Userinvoice.setServiceProviderWebsite(websiteserviceprovider1);
+                                        Userinvoice.setWEB(webn);
                                         Userinvoice.setImage(downloadUri.toString());
                                         // Userinvoice.setImage(receipt);
                                         push.setValue(Userinvoice).addOnCompleteListener(new OnCompleteListener<Void>() {
