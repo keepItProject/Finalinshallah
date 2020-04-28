@@ -15,8 +15,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -44,7 +42,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 
 public class editInfo extends AppCompatActivity {
@@ -61,10 +58,10 @@ public class editInfo extends AppCompatActivity {
 
     TextView textView;
     Spinner dropdown;
-
+com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
     private static final String TAG = "editInfo";
+    ArrayList<com.example.myapplication.UserCategory> categories = new ArrayList<com.example.myapplication.UserCategory>();
 
-    private ArrayList<com.example.myapplication.UserCategory> categories = new ArrayList<>();
 
 
     public static  String expired_data;
@@ -94,7 +91,7 @@ public class editInfo extends AppCompatActivity {
         scrollView =findViewById(R.id.scrol);
         scrollView.setEnabled(false);
         elegantNumberButton=(ElegantNumberButton) findViewById(R.id.elegantNumberButton);
-        spinner=findViewById(R.id.spinner);
+        spinner=findViewById(R.id.spinner1);
        // spinner1=findViewById(R.id.spinner1);
         //  scrollView.setPressed(true);
         //scrollView.setClickable(true);
@@ -125,8 +122,8 @@ public class editInfo extends AppCompatActivity {
         h5.setText(getIntent().getStringExtra("data6"));
         h2.setText(getIntent().getStringExtra("data7"));
         ///////////////////////////////////////////////////////
-        dropdown=findViewById(R.id.spinner);
-
+        dropdown=findViewById(R.id.spinner1);
+       //categories.add(0,null);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("category");
         loadAllCategories(myRef);
@@ -193,10 +190,14 @@ public class editInfo extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for(DataSnapshot datashot:dataSnapshot.getChildren() ) {
                        String expired_data=datashot.child("number").getValue(String.class);
+                        String cat=datashot.child("categoryId").getValue(String.class);
+                        UserCategory userCategory = datashot.getValue(com.example.myapplication.Data.UserCategory.class);
+
                         num=textView.getText().toString().trim();
                         if (expired_data.equals(num))
                         {
-                             key=datashot.getKey();
+
+                            key=datashot.getKey();
                              nameIn=h.getText().toString().trim();
                              Pdate1=h1.getText().toString().trim();
                              Edate2=h2.getText().toString().trim();
@@ -205,7 +206,14 @@ public class editInfo extends AppCompatActivity {
                              email1=h5.getText().toString().trim();
                            period=elegantNumberButton.getNumber();
                             //spinner12= (String) spinner1.getSelectedItem();
-                            spinner5= ((com.example.myapplication.UserCategory) spinner.getSelectedItem()).getId();
+                            docinfoActivity h=new docinfoActivity();
+                            //UserCategory userCategory=new UserCategory();
+                           // boolean j=((com.example.myapplication.UserCategory) dropdown.getSelectedItem()).getId().equals("");
+                          int h123=dropdown.getSelectedItemPosition();
+                           if(h123==0)
+                              spinner5=cat;
+                           else
+                       spinner5= ((com.example.myapplication.UserCategory) dropdown.getSelectedItem()).getId();
 
 
 
@@ -292,11 +300,12 @@ public class editInfo extends AppCompatActivity {
 
     }
 
-    private void loadAllCategories(DatabaseReference myRef){
+   /* private void loadAllCategories(DatabaseReference myRef){
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+categories.add(0,"اختر التصنيف");
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                        // UserCategory userCategory=new UserCategory();
                        // categories.add(0,userCategory.getType1());
@@ -304,14 +313,26 @@ public class editInfo extends AppCompatActivity {
 
                         com.example.myapplication.UserCategory category = ds.getValue(com.example.myapplication.UserCategory.class);
                     if (category.getType().equals("static")|| category.getUser_id().equals(uid))
-                        categories.add(category);
+                        categories.add(category.getName());
 
                 }
                 //get the spinner from the xml.
-                dropdown = findViewById(R.id.spinner);
-                ArrayAdapter adapter = new CategoryAdapter(editInfo.this,categories);
-
+                dropdown = findViewById(R.id.spinner1);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(editInfo.this, android.R.layout.simple_spinner_item, categories);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 dropdown.setAdapter(adapter);
+                dropdown.setSelection(0);
+                dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String itemvalue = parent.getItemAtPosition(position).toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
             }
 
             @Override
@@ -320,7 +341,34 @@ public class editInfo extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-    }
+    }*/
+   private void loadAllCategories(DatabaseReference myRef) {
+       String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+       myRef.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               com.example.myapplication.UserCategory  i= new com.example.myapplication.UserCategory();
+               categories.add(0,i);
+
+               for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                   com.example.myapplication.UserCategory category = ds.getValue(com.example.myapplication.UserCategory.class);
+                   if (category.getType().equals("static")|| category.getUser_id().equals(uid))
+                       categories.add(category);
+
+               }
+               //get the spinner from the xml.
+               dropdown = findViewById(R.id.spinner1);
+               CategoryAdapter adapter = new CategoryAdapter(editInfo.this,categories);
+               dropdown.setAdapter(adapter);
+           }
+
+           @Override
+           public void onCancelled(@NonNull DatabaseError error) {
+               // Failed to read value
+               Log.w(TAG, "Failed to read value.", error.toException());
+           }
+       });
+   }
     public void edit() {
 
     }

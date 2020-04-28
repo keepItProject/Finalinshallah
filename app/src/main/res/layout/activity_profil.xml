@@ -116,20 +116,20 @@
         </TextView>
 
         <Button
-        android:id="@+id/profilepass"
-        android:layout_width="330dp"
-        android:layout_height="39dp"
-            android:drawableRight="@drawable/rr"
-
+            android:id="@+id/profilepass"
+            android:layout_width="330dp"
+            android:layout_height="39dp"
             android:background="@drawable/roundview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781">
 
-    </Button>
+            android:drawableRight="@drawable/go"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.781">
+
+        </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

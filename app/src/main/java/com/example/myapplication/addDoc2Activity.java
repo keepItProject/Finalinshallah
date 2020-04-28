@@ -155,7 +155,7 @@ public class addDoc2Activity extends AppCompatActivity {
 
         ////
         List<String> list = new ArrayList<>();
-       // list.add("خ");
+       list.add("اختر مدة التنبيه");
         list.add("قبل اسبوع");
         list.add("قبل شهر");
 
@@ -250,7 +250,6 @@ public class addDoc2Activity extends AppCompatActivity {
 
                             showExisitDialog();
 
-
                         }
                         else{}
                         if(Name1.equals(""))
@@ -309,9 +308,12 @@ public class addDoc2Activity extends AppCompatActivity {
                                         Userinvoice.setNumber(number1);
                                         Userinvoice.setPDate(Pdate1);
                                         Userinvoice.setEDate(Edate1);
-                                        Userinvoice.setPeriod(priod);
+                                            Userinvoice.setPeriod(priod);
                                         Userinvoice.setCategoryId(((UserCategory) dropdown.getSelectedItem()).getId());
                                         Userinvoice.setServiceProvider(serviceprovider1);
+                                        if(spinner.getSelectedItem().equals("اختر مدة التنبيه"))
+                                            Userinvoice.setNotify("");
+                                        else
                                         Userinvoice.setNotify((String) spinner.getSelectedItem());
                                         Userinvoice.setServiceProviderPhone(numserviceprovider1);
                                         Userinvoice.setServiceProviderWebsite(websiteserviceprovider1);
@@ -450,6 +452,9 @@ public class addDoc2Activity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                com.example.myapplication.UserCategory  i= new com.example.myapplication.UserCategory();
+                categories.add(0,i);
+
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     UserCategory category = ds.getValue(UserCategory.class);
                     if (category.getType().equals("static")|| category.getUser_id().equals(uid))

@@ -129,7 +129,7 @@ public class FragmentActive extends Fragment {
                         }
 
                         } catch (ParseException e) {
-                            e.printStackTrace();
+                           // e.printStackTrace();
                         }
 
 
