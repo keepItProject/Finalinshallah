@@ -38,7 +38,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 
         Intent notificationIntent = new Intent(context, docinfoActivity.class);
-        intent.putExtra("user_invoice_key",key);
+        notificationIntent.putExtra("user_invoice_key",key);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,
                 0, notificationIntent,
