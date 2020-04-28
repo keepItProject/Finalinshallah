@@ -14,12 +14,14 @@ import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.myapplication.Adaptors.SearchAdapter;
 import com.example.myapplication.Adaptors.invoiceAdapter;
 import com.example.myapplication.Data.Userinvoice;
 import com.example.myapplication.Data.invoice;
 import com.example.myapplication.R;
+import com.example.myapplication.addDoc2Activity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -130,6 +132,9 @@ public class SearchActivity extends AppCompatActivity {
                     if(invoice.getUser_id().equals(uid)){
                         if(invoice.getName().contains(string)||invoice.getNumber().contains(string)||invoice.getServiceProvider().contains(string)){
                             invoices.add(invoice);
+                        }
+                        else{
+                            Toast.makeText(SearchActivity.this,"لايوجد اي تطابق", Toast.LENGTH_SHORT).show();
                         }
                     }
 
