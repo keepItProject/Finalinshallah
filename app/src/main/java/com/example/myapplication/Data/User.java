@@ -4,14 +4,12 @@ public class User {
     private String Name;
     private String Email;
     private String Pass;
-    private String Phone;
     private String UID;
 
     public User(String name, String email, String pass, String phone) {
         Name = name;
         Email = email;
         Pass = pass;
-        Phone = phone;
     }
 
     public User() {
@@ -50,12 +48,6 @@ public class User {
         Pass = pass;
     }
 
-    public String getPhone() {
-        return Phone;
-    }
 
-    public void setPhone(String phone) {
-        Phone = phone;
-    }
 }
 
