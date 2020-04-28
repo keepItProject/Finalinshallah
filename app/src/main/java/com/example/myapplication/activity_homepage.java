@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -23,11 +26,12 @@ import com.example.myapplication.Empty.SearchActivity;
 import com.example.myapplication.Empty.mywalletActivity;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
-public class activity_homepage extends AppCompatActivity {
+public class activity_homepage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     FloatingActionButton floatingActionButton;
     BottomAppBar bottomAppBar;
     Toolbar toolbar;
@@ -35,16 +39,32 @@ public class activity_homepage extends AppCompatActivity {
     ImageView cal, ser, ho, pro;
     Button b4;
     LinearLayout ls,lc,lp,lh;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+        //Hooks
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        //--------------------------------------------------
+
         //For tool bar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //--------------------------------------------------
+
+        //Navigation Drawer Menu
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        toolbar.setNavigationIcon(R.drawable.nmenu);
+        navigationView.setNavigationItemSelectedListener(this);
 
         //--------------------------------------------------
         floatingActionButton = findViewById(R.id.orderPlus);
@@ -118,15 +138,15 @@ public class activity_homepage extends AppCompatActivity {
 
     // For menu
 
-    public boolean onCreateOptionsMenu(Menu menu) {
+    /*public boolean onCreateOptionsMenu(Menu menu) {
         //return super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.roptions, menu);
         toolbar.setOverflowIcon(ContextCompat.getDrawable(getApplicationContext(), R.drawable.nmenu));
 
         return true;
-    }
+    }*/
 
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    /*public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
 
@@ -153,7 +173,7 @@ public class activity_homepage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);///////////////////////////
-    }
+    }*/
 
     public void takePhoto(View view) {
         CropImage.activity()
@@ -180,4 +200,42 @@ public class activity_homepage extends AppCompatActivity {
             }
         }
     }
+    //Complete menu
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()){
+            case R.id.cond:
+                Intent intent = new Intent(activity_homepage.this, ConditionsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.MCI:
+                WebView webview = new WebView(this);
+                setContentView(webview);
+                webview.loadUrl("https://mci.gov.sa/ar/pages/default.aspx");
+                break;
+
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent i1 = new Intent(activity_homepage.this, activity_log.class);
+                startActivity(i1);
+                Toast.makeText(this, "تم تسجيل الخروج", Toast.LENGTH_SHORT).show();
+
+                return true;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+    //---------------------------------------------------------------------------
 }
