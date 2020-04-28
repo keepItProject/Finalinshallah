@@ -82,8 +82,14 @@ public class editInfo extends AppCompatActivity {
         // scrollView=  (ScrollView) findViewById(R.id.s1);
         toolbar = (Toolbar) findViewById(R.id.toolbar8);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.bak);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
         Toolbar title = toolbar.findViewById(R.id.title);
         scrollView =findViewById(R.id.scrol);
         scrollView.setEnabled(false);

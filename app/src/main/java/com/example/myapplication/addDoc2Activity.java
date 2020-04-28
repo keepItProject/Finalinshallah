@@ -36,6 +36,7 @@ import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.myapplication.Adaptors.CategoryAdapter;
 import com.example.myapplication.Data.Category;
 import com.example.myapplication.Data.Userinvoice;
+import com.example.myapplication.Empty.mywalletActivity;
 import com.example.myapplication.alarm.AlarmData;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -109,8 +110,16 @@ public class addDoc2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_add_doc2);
 ////////////////////
          toolbar=findViewById(R.id.toolbar8);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.bak);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(addDoc2Activity.this, activity_homepage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         uri =Uri.parse(getIntent().getStringExtra("imageUri"));
         bt1=(Button)findViewById(R.id.button8);
         bt1.setOnClickListener(new View.OnClickListener() {
@@ -611,14 +620,14 @@ public class addDoc2Activity extends AppCompatActivity {
     }
 
     // website & email
-    private static String companyWebsite(String text) {
+   /* private static String companyWebsite(String text) {
         final String regex1 = "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$";
         final String regex = "^(http\\:\\/\\/|https\\:\\/\\/)?([a-z0-9][a-z0-9\\-]\\.)+[a-z0-9][a-z0-9\\-]$";
         if (Pattern.compile(regex + "|" + regex1).matcher(text.replaceAll(" ", "")).matches()) {
             return text;
         }
         return "";
-    }
+    }*/
 
 
     private static  String web(String text)
@@ -643,6 +652,25 @@ public class addDoc2Activity extends AppCompatActivity {
             return "";
         }}
 
+    private static String Url(String text)
+    {
+        String regex = "(?:(?:https?|ftp)://)?(?:\\S+(?::\\S*)?@)?(?:(?!(?:10|127)(?:\\.\\d{1,3}){3})(?!(?:169\\.254|192\\.168)(?:\\.\\d{1,3}){2})(?!172\\.(?:1[6-9]|2\\d|3[0-1])(?:\\.\\d{1,3}){2})(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]-*)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,}))\\.?)(?::\\d{2,5})?(?:[/?#]\\S*)?";
+
+        // Set a pattern
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+
+        // Set a matcher
+        Matcher matches = pattern.matcher(new StringBuilder(text).reverse());
+
+        if (matches.find())
+        {
+            return new StringBuilder(matches.group(0)).reverse().toString();
+        }
+        else
+        {
+            return "";
+        }
+    }
 
 
 

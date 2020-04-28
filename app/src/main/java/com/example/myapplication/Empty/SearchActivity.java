@@ -43,9 +43,12 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
         Toolbar toolbar=findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.bak);
+
+
         //search
         search=(EditText) findViewById(R.id.searchView);
         newrv=(RecyclerView)findViewById(R.id.new_rv);
