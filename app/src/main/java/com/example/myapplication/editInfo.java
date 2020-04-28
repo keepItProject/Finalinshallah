@@ -77,7 +77,7 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
         // scrollView=  (ScrollView) findViewById(R.id.s1);
-        toolbar = (Toolbar) findViewById(R.id.toolbar8);
+        toolbar = (Toolbar) findViewById(R.id.toolbar80);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -87,7 +87,7 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
                 finish();
             }
         });
-        Toolbar title = toolbar.findViewById(R.id.title);
+      //  Toolbar title = toolbar.findViewById(R.id.toolbar80);
         scrollView =findViewById(R.id.scrol);
         scrollView.setEnabled(false);
         elegantNumberButton=(ElegantNumberButton) findViewById(R.id.elegantNumberButton);
@@ -124,6 +124,9 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
         h5.setText(getIntent().getStringExtra("data6"));
         h2.setText(getIntent().getStringExtra("data7"));
         web5.setText(getIntent().getStringExtra("data8"));
+        //tool bar ******
+        toolbar = (Toolbar) findViewById(R.id.toolbar80);
+        setSupportActionBar(toolbar);
         ///////////////////////////////////////////////////////
         dropdown=findViewById(R.id.spinner1);
        //categories.add(0,null);

@@ -66,7 +66,7 @@ public class editprofile extends AppCompatActivity {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(editprofile.this);
             builder.setCancelable(true);
-            View view = LayoutInflater.from(editprofile.this).inflate(R.layout.update_dailog, null, false);
+            View view = LayoutInflater.from(editprofile.this).inflate(R.layout.updateprofile, null, false);
             CardView yes_card = view.findViewById(R.id.yes_card);
             builder.setView(view);
             final AlertDialog alertDialog = builder.show();
