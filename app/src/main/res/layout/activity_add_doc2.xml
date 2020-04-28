@@ -46,9 +46,10 @@
             android:gravity="center"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.424"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="19dp">
+            tools:layout_editor_absoluteY="16dp">
 
         </ImageView>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -218,7 +219,7 @@
                     android:lines="1"
                     android:maxLines="1"
                     android:textColor="#131111"
-                    android:textSize="22dp"
+                    android:textSize="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.49"

@@ -395,6 +395,7 @@ public class addDoc2Activity extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
         invoiceNumber = findViewById(R.id.number);
+        web=findViewById(R.id.web);
       //  mSpinner = (Spinner) findViewById(R.id.spinner4);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -568,7 +569,10 @@ public class addDoc2Activity extends AppCompatActivity {
                                 if (date.getText().length() == 0)
                                     date.setText(dateChecker(lineText) ? lineText : "");
                                 if (email.getText().length() == 0)
-                                    email.setText(web(lineText));
+                                    email.setText(Email(lineText));
+
+                                if (web.getText().length() == 0)
+                                    web.setText(Url(lineText));
 
                                 if (invoiceNumber.getText().length() == 0)
                                     invoiceNumber.setText(invoicenum(lineText));
@@ -640,12 +644,12 @@ public class addDoc2Activity extends AppCompatActivity {
     }*/
 
 
-    private static  String web(String text)
+    private static  String Email(String text)
     {
         //String ocrResult = "- I tax INVOICE 550092002018021020 KINGDOM CENTER";
 
-        String regex = "^(http\\:\\/\\/|https\\:\\/\\/)?([a-z0-9][a-z0-9\\-]\\.)+[a-z0-9][a-z0-9\\-]$";
-                //"\\b(https://?|ftp://|file://|www.)*[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+        String regex = "([a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6})";
+
 
         // Set a pattern
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);

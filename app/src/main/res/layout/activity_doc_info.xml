@@ -451,7 +451,7 @@
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="121dp"
+                android:layout_width="129dp"
                 android:layout_height="37dp"
                 android:background="@drawable/butt"
                 android:drawableRight="@drawable/ndelete"
@@ -467,7 +467,7 @@
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="121dp"
+                android:layout_width="133dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="34dp"
@@ -475,8 +475,8 @@
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/butt"
                 android:drawableRight="@drawable/nmap"
-                android:text="مركز الصيانة"
                 android:paddingRight="5dp"
+                android:text="مركز الصيانة"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

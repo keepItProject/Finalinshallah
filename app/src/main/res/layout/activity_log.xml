@@ -41,7 +41,7 @@
         android:id="@+id/textView3"
         android:layout_width="140dp"
         android:layout_height="32dp"
-        android:text="البريد الألكتروني: "
+        android:text="البريد الإلكتروني: "
         android:textColor="#3C4277"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -159,7 +159,7 @@ public class activity_homepage extends AppCompatActivity implements NavigationVi
 
             WebView webview = new WebView(this);
             setContentView(webview);
-            webview.loadUrl("https://mci.gov.sa/ar/pages/default.aspx");
+            webview.loadUrl("https://mci.gov.sa/ar/contactus/Pages/default.aspx?t=c");
         }
 
 
@@ -223,7 +223,7 @@ public class activity_homepage extends AppCompatActivity implements NavigationVi
             case R.id.MCI:
                 WebView webview = new WebView(this);
                 setContentView(webview);
-                webview.loadUrl("https://mci.gov.sa/ar/pages/default.aspx");
+                webview.loadUrl("https://mci.gov.sa/ar/eservices/Pages/ServiceDetails.aspx?sID=55");
                 break;
 
             case R.id.logout:

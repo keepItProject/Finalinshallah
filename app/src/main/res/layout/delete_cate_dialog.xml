@@ -30,7 +30,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:text="هل تريد حذف هذا التصنيف؟
-                                سيتم حذف جميع الفواتير التي تحنويها"
+                                سيتم حذف جميع الفواتير التي يحتويها"
             android:textSize="20sp" />
 
         <LinearLayout

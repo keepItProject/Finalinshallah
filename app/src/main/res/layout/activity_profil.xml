@@ -47,7 +47,7 @@
             android:layout_width="206dp"
             android:layout_height="46dp"
             android:gravity="center"
-            android:textColor="#121111"
+            android:textColor="#FBFBFB"
             android:textSize="21sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
         <TextView
             android:id="@+id/profileemail"
             android:layout_width="330dp"
-            android:layout_height="39dp"
+            android:layout_height="40dp"
             android:background="@drawable/roundview"
             android:textColor="#121111"
             android:textSize="18sp"

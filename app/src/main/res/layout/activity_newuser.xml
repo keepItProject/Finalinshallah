@@ -176,7 +176,7 @@
         android:layout_width="177dp"
         android:layout_height="40dp"
         android:background="@drawable/buttonround"
-        android:drawableRight="@drawable/rr"
+        android:drawableRight="@drawable/nrr"
         android:paddingRight="5dp"
         android:text="تسجيل"
         android:textSize="20sp"

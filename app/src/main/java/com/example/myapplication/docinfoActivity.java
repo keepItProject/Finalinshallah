@@ -68,6 +68,7 @@ public class docinfoActivity extends AppCompatActivity {
     private TextView porid1;
     private ImageView doc_image;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -186,6 +187,13 @@ public class docinfoActivity extends AppCompatActivity {
 
             }else {
                 doc_service_provider_website.setText( invoice.getServiceProviderWebsite());
+            }
+            if(invoice.getWEB()==null){
+                web200.setVisibility( View.GONE);
+                web100.setVisibility( View.GONE);
+
+            }else {
+                web200.setText( invoice.getWEB());
             }
 
             if(invoice.getPeriod()==null){
@@ -317,6 +325,13 @@ public class docinfoActivity extends AppCompatActivity {
 
                             } else {
                                 porid.setText(invoice.getPeriod());
+                            }
+                            if(invoice.getWEB()==null){
+                                web200.setVisibility( View.GONE);
+                                web100.setVisibility( View.GONE);
+
+                            }else {
+                                web200.setText( invoice.getWEB());
                             }
                             doc_service_provider_website.setMovementMethod(LinkMovementMethod.getInstance());
 

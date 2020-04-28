@@ -15,9 +15,10 @@ public class invoice implements Serializable {
     private String  serviceProviderPhone;
     private String serviceProviderWebsite;
     private String image;
+    private String web;
     public invoice() {
     }
-    public invoice(String id,String name, String number,String PDate, String EDate,String period,String categoryId,String serviceProvider,String  serviceProviderPhone,String serviceProviderWebsite,String image) {
+    public invoice(String id,String name, String number,String PDate, String EDate,String period,String categoryId,String serviceProvider,String  serviceProviderPhone,String serviceProviderWebsite,String image, String web) {
         this.name = name;
         this.PDate = PDate;
         this.EDate = EDate;
@@ -29,6 +30,15 @@ public class invoice implements Serializable {
         this.serviceProviderPhone=serviceProviderPhone;
         this.serviceProviderWebsite=serviceProviderWebsite;
         this.image=image;
+        this.web=web;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
     }
 
     public String getNumber() {
