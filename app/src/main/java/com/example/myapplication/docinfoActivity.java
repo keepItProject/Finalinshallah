@@ -42,7 +42,7 @@ public class docinfoActivity extends AppCompatActivity {
     private com.example.myapplication.Data.Userinvoice invoice;
 
     Button button6;
-    private TextView doc_name;
+    private TextView doc_name,web100,web200;
     private TextView doc_number;
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
@@ -73,6 +73,8 @@ public class docinfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_info);
         doc_name=findViewById(R.id.doc_name);
+        web100=findViewById(R.id.web100);
+                web200=findViewById(R.id.web200);
         doc_image=findViewById(R.id.doc_image);
         doc_number=findViewById(R.id.doc_number);
         doc_pdate=findViewById(R.id.doc_pdate);
@@ -482,6 +484,7 @@ public class docinfoActivity extends AppCompatActivity {
             String one=doc_name.getText().toString().trim();
             String one1=doc_number.getText().toString().trim();
             String one2=doc_pdate.getText().toString().trim();
+            String web9=web200.getText().toString().trim();
            // String one3=doc_cat.getText().toString().trim();
              f=doc_cat1.getText().toString().trim();
             String one4=doc_service_provider.getText().toString().trim();
@@ -497,7 +500,7 @@ public class docinfoActivity extends AppCompatActivity {
             intent.putExtra("data5",one5);
             intent.putExtra("data6",one6);
             intent.putExtra("data7",e);
-            intent.putExtra("data8",f);
+            intent.putExtra("data8",web9);
 
             startActivity(intent);
 

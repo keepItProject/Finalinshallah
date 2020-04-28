@@ -35,13 +35,13 @@
         android:layout_width="432dp"
 
 
-        android:layout_height="200dp">
+        android:layout_height="176dp">
 
 
         <ImageView
             android:id="@+id/receipt"
-            android:layout_width="283dp"
-            android:layout_height="171dp"
+            android:layout_width="293dp"
+            android:layout_height="155dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:scaleType="fitXY"

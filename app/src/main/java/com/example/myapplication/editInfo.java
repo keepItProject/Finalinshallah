@@ -52,7 +52,7 @@ public class editInfo extends AppCompatActivity {
 
     private com.example.myapplication.Data.Userinvoice invoice;
 
-    EditText h,y9,h3,h4,h5;
+    EditText h,y9,h3,h4,h5,web5;
     TextView h2,h1;
      static String  key,nameIn,Pdate1,name,phone1,email1,num,Edate2,period,spinner12,spinner5;
 
@@ -101,10 +101,12 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
         textView=findViewById(R.id.textView442);
         //Pdate
         h1=findViewById(R.id.textView842);
+
         //Edate
         h2=findViewById(R.id.textView0042);
         //name
         h3=findViewById(R.id.textView00w42);
+        web5=findViewById(R.id.web5);
         //phone
         h4=findViewById(R.id.textView0a042);
         ///period
@@ -121,6 +123,7 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
         h4.setText(getIntent().getStringExtra("data5"));
         h5.setText(getIntent().getStringExtra("data6"));
         h2.setText(getIntent().getStringExtra("data7"));
+        web5.setText(getIntent().getStringExtra("data8"));
         ///////////////////////////////////////////////////////
         dropdown=findViewById(R.id.spinner1);
        //categories.add(0,null);
@@ -204,6 +207,7 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
                              name=h3.getText().toString().trim();
                              phone1=h4.getText().toString().trim();
                              email1=h5.getText().toString().trim();
+                             String web55=web5.getText().toString().trim();
                            period=elegantNumberButton.getNumber();
                             //spinner12= (String) spinner1.getSelectedItem();
                             docinfoActivity h=new docinfoActivity();
@@ -230,6 +234,7 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
                             map.put("serviceProviderPhone",phone1);
                             map.put("serviceProviderWebsite",email1);
                             map.put("period",period);
+                            map.put("web",web55);
                            // map.put("notify",spinner12);
                             map.put("categoryId",spinner5);
 

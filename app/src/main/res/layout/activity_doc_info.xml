@@ -310,7 +310,7 @@
                     android:layout_marginBottom="4dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
-                    android:text="الموقع الالكتروني لمقدم الخدمة:"
+                    android:text="البريد الالكتروني لمقدم الخدمة:"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -338,6 +338,42 @@
                     app:layout_constraintTop_toBottomOf="@id/doc_service_provider_phone1" />
 
 
+                <TextView
+                    android:id="@+id/web100"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginBottom="4dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="الموقع الالكتروني لمقدم الخدمة:"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/doc_service_provider_phone" />
+
+                <TextView
+                    android:id="@+id/web200"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginBottom="4dp"
+                    android:autoLink="all"
+                    android:background="@drawable/roundview"
+                    android:clickable="true"
+                    android:linksClickable="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="#3C4277"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/doc_service_provider_phone1" />
                 <TextView
                     android:id="@+id/porid1"
                     android:layout_width="match_parent"
