@@ -80,11 +80,11 @@
 
         </TextView>
 
-        <EditText
+        <TextView
             android:id="@+id/profileemail1"
             android:layout_width="330dp"
             android:layout_height="39dp"
-            android:background="@drawable/roundview"
+            android:background="@drawable/round100"
             android:textColor="#121111"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,7 @@
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent">
 
-        </EditText>
+        </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

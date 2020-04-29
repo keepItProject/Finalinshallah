@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -91,7 +92,7 @@ public class addDoc2Activity extends AppCompatActivity {
     Date date1;
     private ArrayList<Float> prices;
     Spinner spinner;
-    private TextView name, date, phone, email, invoiceNumber,web2;
+    private TextView name, date, phone, email, invoiceNumber,web2,textView3239;
     private ArrayList<UserCategory> categories = new ArrayList<>();
     private CheckBox mCheckBox;
     Button bt , bt1;
@@ -99,6 +100,7 @@ public class addDoc2Activity extends AppCompatActivity {
     String Name1, number1, Pdate1, Edate1, Etime1, period1, serviceprovider1, numserviceprovider1, websiteserviceprovider1;
     EditText Name, number, period, serviceprovider, numserviceprovider, websiteserviceprovider,web;
     TextView  Pdate, Edate, Etime;
+   static Spinner dropdown;
     TextView end_time;
     private Uri uri;
     private int mHourDay, mMinutes;
@@ -108,6 +110,7 @@ public class addDoc2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_doc2);
+
 ////////////////////
          toolbar=findViewById(R.id.toolbar8);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -149,6 +152,8 @@ public class addDoc2Activity extends AppCompatActivity {
         serviceprovider = (EditText) findViewById(R.id.name);
         numserviceprovider = (EditText) findViewById(R.id.phone);
         websiteserviceprovider = (EditText) findViewById(R.id.email);
+        textView3239= findViewById(R.id.textView3239);
+         dropdown = findViewById(R.id.spinner);
         web2=findViewById(R.id.web2);
         web=findViewById(R.id.web);
 
@@ -161,6 +166,9 @@ public class addDoc2Activity extends AppCompatActivity {
        list.add("اختر مدة التنبيه");
         list.add("قبل اسبوع");
         list.add("قبل شهر");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("category");
+        loadAllCategories(myRef);
 
         Pdate.setOnClickListener(v ->{
             DatePickerDialog datePickerDialog = new DatePickerDialog(addDoc2Activity.this, new DateListener(Pdate), myCalendar
@@ -262,7 +270,11 @@ public class addDoc2Activity extends AppCompatActivity {
                         if(number1.equals(""))
                             number.setError("جب تعئة رقم الفاتورة");
                         else {}
-                        if (mCheckBox.isChecked()){
+                        if(dropdown.getSelectedItemPosition()==0) {
+                            textView3239.setError("يجب اختيار تصنيف");
+                        }
+                        else {}
+                        if (mCheckBox.isChecked() && Edate1.equals("")){
                             if(Pdate1.equals("")){
                                 Pdate.setError("جب تعئة تاريخ الشراء");
                             }
@@ -270,9 +282,9 @@ public class addDoc2Activity extends AppCompatActivity {
                         else{
                         }
 
-                        if(!Name1.equals("") && !number1.equals(""))
+                        if(!Name1.equals("") && !number1.equals("") && !dataSnapshot2.exists() && dropdown.getSelectedItemPosition()!=0)
                         {
-                            if(mCheckBox.isChecked()&& Pdate1.equals("")) {
+                            if(mCheckBox.isChecked()&& Pdate1.equals("") && Edate1.equals("") ) {
                             }
                             else{
 
@@ -398,9 +410,7 @@ public class addDoc2Activity extends AppCompatActivity {
         web=findViewById(R.id.web);
       //  mSpinner = (Spinner) findViewById(R.id.spinner4);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("category");
-        loadAllCategories(myRef);
+
 
 
         // hold data from another activity
@@ -428,13 +438,15 @@ public class addDoc2Activity extends AppCompatActivity {
 
 
     }
-
+//to check if the user select his/her notification before week or month and calculation the period notification
     private void handleAlarm(String key, Date date) {
         if (mCheckBox.isChecked()) {
             String periodChoiceTxt = (String) spinner.getSelectedItem().toString().trim();
             long offset = 0;
+            // before week
             if (getString(R.string.before_week).equalsIgnoreCase(periodChoiceTxt)) {
                 offset = TimeUnit.DAYS.toMillis(7);
+                //before month
             } else if (getString(R.string.before_month).equalsIgnoreCase(periodChoiceTxt)) {
                 offset = TimeUnit.DAYS.toMillis(30);
             }
@@ -468,7 +480,7 @@ public class addDoc2Activity extends AppCompatActivity {
 
                 }
                 //get the spinner from the xml.
-                dropdown = findViewById(R.id.spinner);
+
                 CategoryAdapter adapter = new CategoryAdapter(addDoc2Activity.this,categories);
                 dropdown.setAdapter(adapter);
             }
@@ -481,7 +493,7 @@ public class addDoc2Activity extends AppCompatActivity {
         });
     }
 
-    Spinner dropdown;
+
 
 
    /* // call from XML file

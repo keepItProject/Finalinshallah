@@ -176,6 +176,7 @@
             android:id="@+id/orderPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="takePhoto"
             app:backgroundTint="#CFCFCF"
             app:fabSize="normal"
             app:layout_anchor="@id/bar"

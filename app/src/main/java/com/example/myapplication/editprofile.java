@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Data.User;
@@ -33,7 +34,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class editprofile extends AppCompatActivity {
-    EditText name,email;
+    EditText name;
+    TextView email;
     Toolbar toolbar;
 
     DatabaseReference databaseReference;

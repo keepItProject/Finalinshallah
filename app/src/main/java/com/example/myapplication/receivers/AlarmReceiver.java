@@ -30,22 +30,18 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "onReceive() called with: context = [" + context + "], intent = [" + intent + "]");
-
+// used to open speceific invoice on click on receivied notification
         MyAlarmManager alarmio = (MyAlarmManager) ((Application) context.getApplicationContext()).getMyAlarmManager();
         AlarmData alarm = alarmio.getAlarms().get(intent.getIntExtra(EXTRA_ALARM_ID, 0));
-
         String key = alarm.getKey();
-
-
         Intent notificationIntent = new Intent(context, docinfoActivity.class);
         notificationIntent.putExtra("user_invoice_key",key);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,
                 0, notificationIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT);
-
+// to build the content of notification
         Notification.Builder builder = new Notification.Builder(context);
-
         Notification notification = builder.setContentTitle("KEEP IT APPLACATION")
                 .setContentText("ضمانك قارب على الانتهاء!")
                 .setTicker("New Message!")
