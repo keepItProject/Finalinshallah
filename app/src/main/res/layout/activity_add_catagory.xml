@@ -30,7 +30,7 @@
         app:titleMarginStart="100dp" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="200dp"
             android:layout_marginTop="0dp"
             >
 
@@ -40,7 +40,7 @@
         android:text="@string/titel"
         android:layout_height="60dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
 
@@ -59,7 +59,7 @@
         android:layout_width="250dp"
             android:layout_height="29dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="80dp"
             android:layout_marginRight="32dp"
 
         android:background="@drawable/round4"
