@@ -142,9 +142,7 @@ public class SearchActivity extends AppCompatActivity {
                             invoices.add(invoice);
 
                         }
-else{
-                            Toast.makeText(SearchActivity.this,"لايوجد اي تطابق", Toast.LENGTH_SHORT).show();
-                        }
+
 
                     }
 

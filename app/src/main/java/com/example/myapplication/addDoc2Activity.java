@@ -265,7 +265,7 @@ public class addDoc2Activity extends AppCompatActivity {
                         }
                         else{}
                         if(Name1.equals(""))
-                            Name.setError("تجب تعبئة اسم الفاتورة");
+                            Name.setError("يجب تعبئة اسم الفاتورة");
                         else {}
                         if(number1.equals(""))
                             number.setError("يجب تعبئة رقم الفاتورة");
@@ -347,6 +347,7 @@ public class addDoc2Activity extends AppCompatActivity {
                                                     SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                                                     try {
                                                         ////if
+
                                                         if(Edate1.equals("") && !Pdate1.equals("")){
                                                             if(!priod.equals("")){
                                                                 String h2 = Pdate1.substring(0, 4);
@@ -359,8 +360,9 @@ public class addDoc2Activity extends AppCompatActivity {
 
                                                                 handleAlarm(key, sdf.parse(String.format(Locale.US,"%s %02d:%02d", PuDate, mHourDay, mMinutes)));
                                                         }}
-                                                        else{
+                                                        else if(!Edate1.equals("")){
                                                         handleAlarm(key, sdf.parse(String.format(Locale.US,"%s %02d:%02d", Edate1, mHourDay, mMinutes)));}
+                                                        else{}
                                                     } catch (Exception ex) {
                                                         Toast.makeText(addDoc2Activity.this, "Error in parse date", Toast.LENGTH_SHORT).show();
                                                     }
