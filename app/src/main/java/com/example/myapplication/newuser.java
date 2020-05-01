@@ -75,16 +75,16 @@ if(N.isEmpty() || E.isEmpty() || p.isEmpty() || Passc.isEmpty() || !p.equals(Pas
 
                 }
                 if (N.isEmpty() || N.length() >32)
-                { Name.setError("أدخل الاسم بشكل صحيح");
+                { Name.setError("يجب إدخال الإسم");
                 }
                 else{}
 
                 if(E.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(E).matches())
-                { Email.setError("أدخل البريد الالكتروني بشكل صحيح");
+                { Email.setError("أدخل البريد الالكتروني بالشكل الصحيح");
                 }
                 else{}
 
-                if(p.isEmpty()||p.length()<8 ) { Pass.setError("أدخل الرقم السري بشكل صحيح");
+                if(p.isEmpty()||p.length()<8 ) { Pass.setError("أدخل الرقم السري بالشكل صحيح");
 
                 }
                 else {

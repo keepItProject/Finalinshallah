@@ -122,14 +122,14 @@ public class docinfoActivity extends AppCompatActivity {
                 porid1.setVisibility( View.GONE);
 
             }else {
-                porid.setText( invoice.getCategoryId());
+                porid.setText( "  "+invoice.getCategoryId());
             }
             if(invoice.getName()==null){
                 doc_name.setVisibility( View.GONE);
                 doc_name1.setVisibility( View.GONE);
 
             }else {
-                doc_name.setText( invoice.getName());
+                doc_name.setText( "  "+invoice.getName());
             }
 
             if(invoice.getEDate()==null){
@@ -137,7 +137,7 @@ public class docinfoActivity extends AppCompatActivity {
                 edate1.setVisibility( View.GONE);
 
             }else {
-                edate.setText( invoice.getEDate());
+                edate.setText( "  "+invoice.getEDate());
             }
 
             if(invoice.getNotify()==null){
@@ -145,7 +145,7 @@ public class docinfoActivity extends AppCompatActivity {
                 textView251.setVisibility( View.GONE);
 
             }else {
-                textView25.setText( invoice.getNotify());
+                textView25.setText( "  "+invoice.getNotify());
             }
 
             if(invoice.getNumber()==null){
@@ -153,7 +153,7 @@ public class docinfoActivity extends AppCompatActivity {
                 doc_number1.setVisibility( View.GONE);
 
             }else {
-                doc_number.setText( invoice.getNumber());
+                doc_number.setText("  "+ invoice.getNumber());
             }
 
             if(invoice.getPDate()==null){
@@ -161,7 +161,7 @@ public class docinfoActivity extends AppCompatActivity {
                 doc_pdate1.setVisibility( View.GONE);
 
             }else {
-                doc_pdate.setText( invoice.getPDate());
+                doc_pdate.setText("  "+ invoice.getPDate());
             }
 
 
@@ -170,7 +170,7 @@ public class docinfoActivity extends AppCompatActivity {
                 doc_service_provider1.setVisibility( View.GONE);
 
             }else {
-                doc_service_provider.setText( invoice.getServiceProvider());
+                doc_service_provider.setText("  "+ invoice.getServiceProvider());
             }
 
             if(invoice.getServiceProviderPhone()==null){
@@ -178,7 +178,7 @@ public class docinfoActivity extends AppCompatActivity {
                 doc_service_provider_phone1.setVisibility( View.GONE);
 
             }else {
-                doc_service_provider_phone.setText( invoice.getServiceProviderPhone());
+                doc_service_provider_phone.setText( "  "+invoice.getServiceProviderPhone());
             }
 
             if(invoice.getServiceProviderWebsite()==null){
@@ -186,14 +186,14 @@ public class docinfoActivity extends AppCompatActivity {
                 doc_service_provider_website1.setVisibility( View.GONE);
 
             }else {
-                doc_service_provider_website.setText( invoice.getServiceProviderWebsite());
+                doc_service_provider_website.setText("  "+ invoice.getServiceProviderWebsite());
             }
             if(invoice.getWEB()==null){
                 web200.setVisibility( View.GONE);
                 web100.setVisibility( View.GONE);
 
             }else {
-                web200.setText( invoice.getWEB());
+                web200.setText("  "+ invoice.getWEB());
             }
 
             if(invoice.getPeriod()==null){
@@ -201,7 +201,7 @@ public class docinfoActivity extends AppCompatActivity {
                 porid1.setVisibility( View.GONE);
 
             }else {
-                porid.setText( invoice.getPeriod());
+                porid.setText( "  "+invoice.getPeriod());
             }
 
             doc_service_provider_website.setMovementMethod(LinkMovementMethod.getInstance());
@@ -216,7 +216,7 @@ public class docinfoActivity extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 if(dataSnapshot.exists()){
                                     UserCategory userCategory=dataSnapshot.getValue(com.example.myapplication.Data.UserCategory.class);
-                                    doc_cat.setText(userCategory.getName());
+                                    doc_cat.setText("  "+userCategory.getName());
 
 
 
@@ -259,7 +259,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 doc_name1.setVisibility(View.GONE);
 
                             } else {
-                                doc_name.setText(invoice.getName());
+                                doc_name.setText(invoice.getName()+"  ");
                             }
 
                             if (invoice.getEDate() == null) {
@@ -267,7 +267,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 edate1.setVisibility(View.GONE);
 
                             } else {
-                                edate.setText(invoice.getEDate());
+                                edate.setText("  "+invoice.getEDate());
                             }
 
                             if (invoice.getNotify() == null) {
@@ -275,7 +275,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 textView251.setVisibility(View.GONE);
 
                             } else {
-                                textView25.setText(invoice.getNotify());
+                                textView25.setText("  "+invoice.getNotify());
                             }
 
                             if (invoice.getNumber() == null) {
@@ -283,7 +283,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 doc_number1.setVisibility(View.GONE);
 
                             } else {
-                                doc_number.setText(invoice.getNumber());
+                                doc_number.setText("  "+invoice.getNumber());
                             }
 
                             if (invoice.getPDate() == null) {
@@ -291,7 +291,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 doc_pdate1.setVisibility(View.GONE);
 
                             } else {
-                                doc_pdate.setText(invoice.getPDate());
+                                doc_pdate.setText("  "+invoice.getPDate());
                             }
 
 
@@ -300,7 +300,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 doc_service_provider1.setVisibility(View.GONE);
 
                             } else {
-                                doc_service_provider.setText(invoice.getServiceProvider());
+                                doc_service_provider.setText("  "+invoice.getServiceProvider());
                             }
 
                             if (invoice.getServiceProviderPhone() == null) {
@@ -308,7 +308,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 doc_service_provider_phone1.setVisibility(View.GONE);
 
                             } else {
-                                doc_service_provider_phone.setText(invoice.getServiceProviderPhone());
+                                doc_service_provider_phone.setText("  "+invoice.getServiceProviderPhone());
                             }
 
                             if (invoice.getServiceProviderWebsite() == null) {
@@ -316,7 +316,7 @@ public class docinfoActivity extends AppCompatActivity {
                                 doc_service_provider_website1.setVisibility(View.GONE);
 
                             } else {
-                                doc_service_provider_website.setText(invoice.getServiceProviderWebsite());
+                                doc_service_provider_website.setText("  "+invoice.getServiceProviderWebsite());
                             }
 
                             if (invoice.getPeriod() == null) {
@@ -324,14 +324,14 @@ public class docinfoActivity extends AppCompatActivity {
                                 porid1.setVisibility(View.GONE);
 
                             } else {
-                                porid.setText(invoice.getPeriod());
+                                porid.setText("  "+invoice.getPeriod());
                             }
                             if(invoice.getWEB()==null){
                                 web200.setVisibility( View.GONE);
                                 web100.setVisibility( View.GONE);
 
                             }else {
-                                web200.setText( invoice.getWEB());
+                                web200.setText( "  "+invoice.getWEB());
                             }
                             doc_service_provider_website.setMovementMethod(LinkMovementMethod.getInstance());
 

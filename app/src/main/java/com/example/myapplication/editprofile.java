@@ -50,7 +50,14 @@ public class editprofile extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar990);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
                 email=findViewById(R.id.profileemail1);
                 name=findViewById(R.id.profilename1);
                 user=new User();

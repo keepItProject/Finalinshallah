@@ -1,8 +1,10 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/useremail"
+    android:id="@+id/card"
+
     app:cardBackgroundColor="#8eb5dc"
-    android:layout_width="300dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
     android:layout_gravity="center_horizontal"
@@ -10,53 +12,97 @@
     app:contentPadding="16dp"
 
     >
-
     <LinearLayout
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/liner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:orientation="vertical">
-
-
-
-        <TextView
-            android:textColor="#fff"
-            android:id="@+id/textt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="اعادة تعيين كلمة المرور"
-            android:textSize="20sp" />
-
+        android:layout_height="174dp"
+        android:layout_gravity="center"
+        android:gravity="center">
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_horizontal"
+            android:id="@+id/liner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="174dp"
+            android:layout_gravity="center_horizontal"
+
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="اعادة تعيين كلمة المرور"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_margin="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/buttonround"
-                android:hint=" ادخل البريد الإلكتروني">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:hint="ادخل البريد الالكتروني"
+                android:inputType="textPassword"
+                android:textColor="#fff"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/no_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@android:color/background_light"
+                    app:cardCornerRadius="25dp"
+                    app:contentPadding="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="إلغاء"
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/yes_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@android:color/background_light"
+                    app:cardCornerRadius="25dp"
+                    app:contentPadding="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="إعادة تعيين"
+
+                        android:textColor="#000"
+                        android:textSize="18sp">
+
+                    </TextView>
+
+                </androidx.cardview.widget.CardView>
 
 
-            </EditText>
-
-
-
+            </LinearLayout>
 
 
         </LinearLayout>
-
-
     </LinearLayout>
 </androidx.cardview.widget.CardView>
