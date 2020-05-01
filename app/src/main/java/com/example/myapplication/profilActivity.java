@@ -21,8 +21,10 @@ import android.widget.Toast;
 
 import com.example.myapplication.Data.User;
 import com.example.myapplication.Data.Userinvoice;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +33,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 import sun.bob.mcalendarview.vo.MarkedDates;
 
 public class profilActivity extends AppCompatActivity {
@@ -38,6 +42,9 @@ public class profilActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
     FirebaseUser mauth;
+    Task<Void> firebaseUser1;
+
+    User user1;
     String userId;
     TextView email,profilenum,profilename,verifyMsg;
     Button pass;
@@ -58,6 +65,7 @@ public class profilActivity extends AppCompatActivity {
         userId = fAuth.getCurrentUser().getUid();
          user = fAuth.getCurrentUser();
 
+user1=new User();
 
         pass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,17 +177,84 @@ public class profilActivity extends AppCompatActivity {
         }
         int id=item.getItemId();
         if(id==R.id.meueline1){
-            String one=profilename.getText().toString().trim();
-            String one1=email.getText().toString().trim();
-            // String one3=doc_cat.getText().toString().trim();
+            final AlertDialog.Builder builder = new AlertDialog.Builder(profilActivity.this);
+            builder.setCancelable(true);
+            View view = LayoutInflater.from(profilActivity.this).inflate(R.layout.edit_cate, null, false);
+            CardView yes_card = view.findViewById(R.id.yes_card);
+            builder.setView(view);
+            final AlertDialog alertDialog = builder.show();
+            CardView no_card = view.findViewById(R.id.no_card);
+            final EditText edit_text = view.findViewById(R.id.edit_text);
+            edit_text.setText(profilename.getText().toString().trim());
 
-            Intent intent=new Intent(profilActivity.this,editprofile.class);
-            intent.putExtra("data",one);
-            intent.putExtra("data1",one1);
+            no_card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    alertDialog.dismiss();
+
+                }
+            });
 
 
+            yes_card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    databaseReference= FirebaseDatabase.getInstance().getReference();
+                    // String uid=databaseReference.getKey();
+                    String e=email.getText().toString().trim();
+                    FirebaseDatabase.getInstance().getReference().child("User").orderByChild("email").equalTo(e).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-            startActivity(intent);
+                            for(DataSnapshot datashot:dataSnapshot.getChildren() ) {
+                                String key = datashot.getKey();
+
+
+                                //email.setError("الايميل موجود مسبقا");
+
+                                String e = email.getText().toString().trim();
+                                String name11 = edit_text.getText().toString().trim();
+                                HashMap<String, Object> map = new HashMap<>();
+                                map.put("name", name11);
+
+                                FirebaseDatabase.getInstance().getReference().child("User").child(key).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                           firebaseUser1= FirebaseAuth.getInstance().getCurrentUser().updateEmail(e).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+
+                                                }
+                                            });
+                                            Intent intent1 = new Intent(profilActivity.this, profilActivity.class);
+
+                                            startActivity(intent1);
+                                            //  startActivity(new Intent(getApplicationContext(), activity_homepage.class));
+
+                                            Toast.makeText(profilActivity.this, "تم التعديل بنجاح", Toast.LENGTH_SHORT).show();
+                                            finish();
+
+                                        }
+                                    }
+                                });
+
+                                /////////////
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                        /////
+                    });
+                    alertDialog.dismiss();
+
+                }
+
+            });
 
         }
         return super.onOptionsItemSelected(item);

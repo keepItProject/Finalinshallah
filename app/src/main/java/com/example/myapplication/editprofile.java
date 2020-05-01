@@ -41,6 +41,7 @@ public class editprofile extends AppCompatActivity {
     DatabaseReference databaseReference;
     Task<Void> firebaseUser;
     FirebaseAuth auth ;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class editprofile extends AppCompatActivity {
 
                 email=findViewById(R.id.profileemail1);
                 name=findViewById(R.id.profilename1);
+                user=new User();
                 name.setText(getIntent().getStringExtra("data"));
                 email.setText(getIntent().getStringExtra("data1"));
             }
@@ -68,11 +70,14 @@ public class editprofile extends AppCompatActivity {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(editprofile.this);
             builder.setCancelable(true);
-            View view = LayoutInflater.from(editprofile.this).inflate(R.layout.updateprofile, null, false);
+            View view = LayoutInflater.from(editprofile.this).inflate(R.layout.edit_cate, null, false);
             CardView yes_card = view.findViewById(R.id.yes_card);
             builder.setView(view);
             final AlertDialog alertDialog = builder.show();
             CardView no_card = view.findViewById(R.id.no_card);
+            final EditText edit_text = view.findViewById(R.id.edit_text);
+            edit_text.setText(user.getName());
+
             no_card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -99,7 +104,7 @@ public class editprofile extends AppCompatActivity {
                                     //email.setError("الايميل موجود مسبقا");
 
                                     String e = email.getText().toString().trim();
-                                    String name11 = name.getText().toString().trim();
+                                    String name11 = edit_text.getText().toString().trim();
                                     HashMap<String, Object> map = new HashMap<>();
                                     map.put("name", name11);
                                 updateRecord(e);
