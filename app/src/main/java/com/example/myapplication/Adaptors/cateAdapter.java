@@ -26,6 +26,8 @@ import com.example.myapplication.Data.Userinvoice;
 import com.example.myapplication.Empty.activity_cloth;
 import com.example.myapplication.R;
 import com.example.myapplication.activity_add_catagory;
+import com.example.myapplication.activity_homepage;
+import com.example.myapplication.docinfoActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static android.graphics.Color.parseColor;
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class cateAdapter extends RecyclerView.Adapter<cateAdapter.CateView> {
     private ArrayList<UserCategory> userCategories;
@@ -232,6 +235,7 @@ holder.cardView.setCardBackgroundColor(android.R.color.transparent);
                             public void onClick(View view) {
                                 alertDialog.dismiss();
 
+
                             }
                         });
 
@@ -245,32 +249,31 @@ holder.cardView.setCardBackgroundColor(android.R.color.transparent);
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                                FirebaseDatabase.getInstance().getReference().child("document").addListenerForSingleValueEvent(new ValueEventListener() {
-                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
-                                                        for (DataSnapshot datashot : dataSnapshot2.getChildren()) {
+                                            FirebaseDatabase.getInstance().getReference().child("document").addListenerForSingleValueEvent(new ValueEventListener() {
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
+                                                    for (DataSnapshot datashot : dataSnapshot2.getChildren()) {
 
-                                                            String categoryid= datashot.child("categoryId").getValue(String.class);
-                                                            if(categoryid.equals(userCategory.getId())){
-                                                                 key = datashot.getKey();
+                                                        String categoryid= datashot.child("categoryId").getValue(String.class);
+                                                        if(categoryid.equals(userCategory.getId())){
+                                                            key = datashot.getKey();
 
                                                             FirebaseDatabase.getInstance().getReference().child("document").child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
                                                                 public void onComplete(@NonNull Task<Void> task) {
                                                                     if (task.isSuccessful()) {
-                                                                        alertDialog.dismiss();
                                                                     }
                                                                 }
                                                             });
 
-                                                            }}}
-                                                        @Override
-                                                        public void onCancelled (@NonNull DatabaseError databaseError){
+                                                        }}}
+                                                @Override
+                                                public void onCancelled (@NonNull DatabaseError databaseError){
 
-                                                        }
-                                                    });
+                                                }
+                                            });
+                                            Toast.makeText(mContext, "تم الحذف بنجاح", Toast.LENGTH_SHORT).show();
                                             alertDialog.dismiss();
                                                         }
-                                        alertDialog.dismiss();
 
 
                                     }
