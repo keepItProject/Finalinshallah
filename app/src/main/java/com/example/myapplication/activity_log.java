@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -108,19 +109,28 @@ if(TextUtils.isEmpty(email) ||TextUtils.isEmpty(pwd) ) {
                 Intent intent =new Intent(activity_log.this, activity_homepage.class);
                 startActivity(intent);
         });*/
+
+
+
+
+
         for_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText mail=new EditText(v.getContext());
-               AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-               builder.setMessage("ادخل البريد الالكتروني لإعادة تعيين كلمة المرور");
-               builder.setTitle("اعادة تعيين كلمة المرور");
-               View view = LayoutInflater.from(v.getContext()).inflate(R.layout.forpass, null);
-                builder.setView(mail);
-                builder.setPositiveButton("اعادة تعيين", new DialogInterface.OnClickListener() {
-                @Override
-                    public void onClick(DialogInterface dialog, int which) {
-String emaill= mail.getText().toString().trim();
+        AlertDialog.Builder update=new AlertDialog.Builder(v.getContext());
+        View view = LayoutInflater.from(v.getContext()).inflate(R.layout.forpass, null, false);
+        CardView yes_card = view.findViewById(R.id.yes_card);
+final EditText upemail = view.findViewById(R.id.email);
+
+        update.setView(upemail);
+        update.setView(view);
+final AlertDialog alertDialog = update.show();
+        CardView no_card = view.findViewById(R.id.no_card);
+
+              yes_card.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+String emaill= upemail.getText().toString().trim();
                         mFirebaseAuth.sendPasswordResetEmail(emaill).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
@@ -136,13 +146,13 @@ String emaill= mail.getText().toString().trim();
                     }
                 });
 
-                builder.setNegativeButton("الغاء", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
+        no_card.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View v) {
+    alertDialog.dismiss();
                     }
                 });
-builder.create().show();
+
             }
         });
     }

@@ -78,7 +78,7 @@ com.example.myapplication.Data.UserCategory userinvoice=new UserCategory();
         setContentView(R.layout.activity_edit_info);
         // scrollView=  (ScrollView) findViewById(R.id.s1);
         toolbar = (Toolbar) findViewById(R.id.toolbar80);
-
+        setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override

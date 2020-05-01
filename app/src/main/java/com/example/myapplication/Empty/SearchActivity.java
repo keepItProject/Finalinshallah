@@ -140,10 +140,12 @@ public class SearchActivity extends AppCompatActivity {
                     if(invoice.getUser_id().equals(uid)){
                         if(invoice.getName().contains(string)||invoice.getNumber().contains(string)||invoice.getServiceProvider().contains(string)){
                             invoices.add(invoice);
+
                         }
 else{
                             Toast.makeText(SearchActivity.this,"لايوجد اي تطابق", Toast.LENGTH_SHORT).show();
                         }
+
                     }
 
                 }

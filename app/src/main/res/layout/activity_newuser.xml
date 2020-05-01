@@ -14,6 +14,7 @@
         android:text="مستخدم جديد "
         android:textColor="#3C4277"
         android:textSize="40sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -43,6 +44,8 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/round"
         android:enabled="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:inputType="textPersonName"
         android:textColor="#200202"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,7 +75,8 @@
         android:layout_width="280dp"
         android:layout_height="32dp"
         android:hint="على الأقل 8 أحرف"
-
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:background="@drawable/round"
         android:ems="10"
         android:inputType="textPassword"
@@ -104,6 +108,8 @@
         android:layout_height="32dp"
         android:background="@drawable/round"
         android:ems="10"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,13 +139,16 @@
         android:layout_height="32dp"
         android:background="@drawable/round"
         android:ems="10"
-        android:hint="name@example.com"
+        android:hint="  name@example.com"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.642" />
 
     <Button
