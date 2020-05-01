@@ -57,7 +57,12 @@ public class SearchActivity extends AppCompatActivity {
         namelist=new ArrayList<>();
         datelist=new ArrayList<>();
 
-
+if(search.getText().toString().trim().isEmpty()){
+    namelist.clear();
+    datelist.clear();
+    invoices.clear();
+    newrv.removeAllViews();
+}
         databaseReference= FirebaseDatabase.getInstance().getReference();
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
 
@@ -78,14 +83,19 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                     if(!s.toString().isEmpty()){
                         setAdapter(s.toString());
+
                     }else {
                         namelist.clear();
                         datelist.clear();
+                        invoices.clear();
+
                         newrv.removeAllViews();
                     }
+
                 }
             }
         });
