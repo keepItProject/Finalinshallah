@@ -57,15 +57,16 @@ public class SearchActivity extends AppCompatActivity {
         namelist=new ArrayList<>();
         datelist=new ArrayList<>();
 
-if(search.getText().toString().trim().isEmpty()){
-    namelist.clear();
-    datelist.clear();
-    invoices.clear();
-    newrv.removeAllViews();
-}
+
+
         databaseReference= FirebaseDatabase.getInstance().getReference();
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-
+        if(search.getText().toString().trim().isEmpty()){
+            namelist.clear();
+            datelist.clear();
+            invoices.clear();
+            newrv.removeAllViews();
+        }
         newrv.setHasFixedSize(true);
         newrv.setLayoutManager(new LinearLayoutManager(this));
         newrv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
@@ -83,19 +84,16 @@ if(search.getText().toString().trim().isEmpty()){
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                     if(!s.toString().isEmpty()){
                         setAdapter(s.toString());
-
                     }else {
                         namelist.clear();
                         datelist.clear();
                         invoices.clear();
-//hi
+
                         newrv.removeAllViews();
                     }
-
                 }
             }
         });
@@ -143,7 +141,7 @@ if(search.getText().toString().trim().isEmpty()){
                         if(invoice.getName().contains(string)||invoice.getNumber().contains(string)||invoice.getServiceProvider().contains(string)){
                             invoices.add(invoice);
                         }
-                        else{
+else{
                             Toast.makeText(SearchActivity.this,"لايوجد اي تطابق", Toast.LENGTH_SHORT).show();
                         }
                     }
