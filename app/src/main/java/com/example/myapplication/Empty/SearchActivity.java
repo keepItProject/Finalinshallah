@@ -92,7 +92,7 @@ if(search.getText().toString().trim().isEmpty()){
                         namelist.clear();
                         datelist.clear();
                         invoices.clear();
-
+//hi
                         newrv.removeAllViews();
                     }
 
