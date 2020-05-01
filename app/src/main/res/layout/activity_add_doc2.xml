@@ -80,16 +80,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="4dp"
+                android:lines="1"
+                android:maxLines="1"
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/roundview"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="#121111"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/doc_name1" />
+                app:layout_constraintTop_toBottomOf="@id/doc_name1"
+                android:inputType="textPersonName"
+                android:textColor="#131111"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintTop_toTopOf="@+id/toolbar8"
+                app:layout_constraintVertical_bias="1.0"
+                />
 
             <TextView
                 android:id="@+id/textView339"
@@ -115,17 +123,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
+                android:lines="1"
+                android:maxLines="1"
+
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="4dp"
                 android:background="@drawable/roundview"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="#100F0F"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/doc_number1" />
+                app:layout_constraintTop_toBottomOf="@id/doc_number1"
+                android:inputType="textPersonName"
+                android:textColor="#131111"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintTop_toTopOf="@+id/toolbar8"
+                app:layout_constraintVertical_bias="1.0"
+                />
 
             <TextView
                 android:id="@+id/textView839"
@@ -253,6 +270,9 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="32dp"
@@ -260,11 +280,18 @@
                 android:background="@drawable/roundview"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="#252323"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/doc_service_provider1" />
+                app:layout_constraintTop_toBottomOf="@id/doc_service_provider1"
+                android:inputType="textPersonName"
+
+                android:textColor="#131111"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintTop_toTopOf="@+id/toolbar8"
+                app:layout_constraintVertical_bias="1.0"
+                />
 
 
             <TextView
@@ -286,6 +313,17 @@
 
             <EditText
                 android:id="@+id/phone"
+                android:lines="1"
+                android:maxLines="1"
+                android:inputType="textPersonName"
+
+                android:textColor="#131111"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintTop_toTopOf="@+id/toolbar8"
+                app:layout_constraintVertical_bias="1.0"
+
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -297,7 +335,6 @@
                 android:clickable="true"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="#252323"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -323,6 +360,16 @@
 
             <EditText
                 android:id="@+id/email"
+                android:lines="1"
+                android:maxLines="1"
+                android:inputType="textPersonName"
+
+                android:textColor="#131111"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintTop_toTopOf="@+id/toolbar8"
+                app:layout_constraintVertical_bias="1.0"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -335,7 +382,6 @@
                 android:linksClickable="true"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="#3C4277"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -361,6 +407,15 @@
 
             <EditText
                 android:id="@+id/web"
+                android:lines="1"
+                android:maxLines="1"
+                android:inputType="textPersonName"
+
+                android:textColor="#131111"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintTop_toTopOf="@+id/toolbar8"
+                app:layout_constraintVertical_bias="1.0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -373,7 +428,6 @@
                 android:linksClickable="true"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:textColor="#3C4277"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
