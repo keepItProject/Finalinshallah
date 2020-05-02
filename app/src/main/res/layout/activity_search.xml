@@ -46,6 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.153"
+        android:paddingRight="10dp"
         android:drawableLeft="@drawable/loupe"
         android:paddingLeft="10dp"/>
     </LinearLayout>
