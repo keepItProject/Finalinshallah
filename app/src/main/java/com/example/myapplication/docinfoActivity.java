@@ -5,9 +5,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -98,7 +103,28 @@ public class docinfoActivity extends AppCompatActivity {
         doc_service_provider_website1=findViewById(R.id.doc_service_provider_website1);
         textView25=findViewById(R.id.textView25);
         textView251=findViewById(R.id.textView251);
+        doc_service_provider_phone1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT > 22) {
 
+                    if (ActivityCompat.checkSelfPermission(docinfoActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+                        ActivityCompat.requestPermissions(docinfoActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 101);
+
+                        return;
+                    }
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:+" + doc_service_provider_phone1.getText().toString().trim()));
+                    startActivity(callIntent);
+                } else {
+
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:+" + doc_service_provider_phone1.getText().toString().trim()));
+                    startActivity(callIntent);
+                }
+            }
+        });
        /* doc_name.setText(getIntent().getStringExtra("data"));
         doc_number.setText(getIntent().getStringExtra("data1"));
 
